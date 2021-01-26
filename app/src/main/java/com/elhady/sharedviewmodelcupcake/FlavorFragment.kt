@@ -10,6 +10,7 @@ import com.elhady.sharedviewmodelcupcake.databinding.FragmentFlavorBinding
 
 class FlavorFragment : Fragment() {
     private var binding: FragmentFlavorBinding? = null
+    
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
