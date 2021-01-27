@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".PickupFragment">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.elhady.sharedviewmodelcupcake.viewmodel.OrderViewModel" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,24 +29,32 @@
 
                 <RadioButton
                     android:id="@+id/option0"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[0])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[0])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Thursday" />
 
                 <RadioButton
                     android:id="@+id/option1"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[1])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[1])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Friday" />
 
                 <RadioButton
                     android:id="@+id/option2"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[2])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[2])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Saturday" />
 
                 <RadioButton
                     android:id="@+id/option3"
+                    android:checked="@{viewModel.date.equals(viewModel.dateOptions[3])}"
+                    android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[3])}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Sunday" />
