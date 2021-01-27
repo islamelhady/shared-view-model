@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.elhady.sharedviewmodelcupcake.databinding.FragmentStartBinding
+import com.elhady.sharedviewmodelcupcake.viewmodel.OrderViewModel
 
 class StartFragment : Fragment() {
     private var binding: FragmentStartBinding? = null
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +38,10 @@ class StartFragment : Fragment() {
      * Start an order with the desired quantity of cupcakes and navigate to the next screen.
      */
     private fun orderCupcake(quantity: Int) {
+        sharedViewModel.setQuantity(quantity)
+        if (sharedViewModel.hasNoFlavorSet()){
+            sharedViewModel.setFlavor(getString(R.string.vanilla))
+        }
         findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
     }
 
