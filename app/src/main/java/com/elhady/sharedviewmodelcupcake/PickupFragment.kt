@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.elhady.sharedviewmodelcupcake.databinding.FragmentPickupBinding
+import com.elhady.sharedviewmodelcupcake.viewmodel.OrderViewModel
 
 class PickupFragment : Fragment() {
     private var binding: FragmentPickupBinding? = null
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,14 +28,16 @@ class PickupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            nextButton.setOnClickListener { goToNextScreen() }
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
+            pickupFragment = this@PickupFragment
         }
     }
 
     /**
      * Navigate to the next screen to see the order summary.
      */
-    private fun goToNextScreen() {
+    fun goToNextScreen() {
         findNavController().navigate(R.id.action_pickupFragment_to_summaryFragment)
     }
 

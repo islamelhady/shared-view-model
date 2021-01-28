@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.elhady.sharedviewmodelcupcake.viewmodel.OrderViewModel" />
+
+        <variable
+            name="pickupFragment"
+            type="com.elhady.sharedviewmodelcupcake.PickupFragment" />
     </data>
 
     <ScrollView
@@ -84,6 +88,7 @@
 
             <Button
                 android:id="@+id/next_button"
+                android:onClick="@{() -> pickupFragment.goToNextScreen()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"

@@ -7,6 +7,10 @@
         <variable
             name="viewModel"
             type="com.elhady.sharedviewmodelcupcake.viewmodel.OrderViewModel" />
+
+        <variable
+            name="flavorFragment"
+            type="com.elhady.sharedviewmodelcupcake.FlavorFragment" />
     </data>
 
     <ScrollView
@@ -90,6 +94,7 @@
 
             <Button
                 android:id="@+id/next_button"
+                android:onClick="@{() -> flavorFragment.goToNextScreen()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
