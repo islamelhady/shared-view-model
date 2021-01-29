@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.elhady.sharedviewmodelcupcake.databinding.FragmentPickupBinding
 import com.elhady.sharedviewmodelcupcake.viewmodel.OrderViewModel
@@ -39,6 +38,11 @@ class PickupFragment : Fragment() {
      */
     fun goToNextScreen() {
         findNavController().navigate(R.id.action_pickupFragment_to_summaryFragment)
+    }
+
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_pickupFragment_to_startFragment)
     }
 
     /**
